@@ -1,0 +1,85 @@
+++ Grafo inicializado com sucesso ++
+-> nVertices: 5
+-> nArestas: 0
+++ Arquivo de dados aberto com sucesso ++
+-> Total de arestas a serem recebidas: 11
+-> (1) Aresta v0 --(10)--> v1 recebida com sucesso.
+-> (2) Aresta v0 --(13)--> v2 recebida com sucesso.
+-> (3) Aresta v0 --(15)--> v3 recebida com sucesso.
+-> (4) Aresta v1 --(10)--> v0 recebida com sucesso.
+-> (5) Aresta v1 --(0)--> v1 recebida com sucesso. 
+-> (6) Aresta v2 --(23)--> v1 recebida com sucesso.
+-> (7) Aresta v2 --(17)--> v3 recebida com sucesso.
+-> (8) Aresta v2 --(5)--> v4 recebida com sucesso. 
+-> (9) Aresta v3 --(17)--> v1 recebida com sucesso.
+-> (10) Aresta v3 --(10)--> v4 recebida com sucesso.
+-> (11) Aresta v4 --(10)--> v3 recebida com sucesso.
+-> Arquivo de dados fechado.
+++ Imprimindo grafo ++
+-> Total de vertices: 5
+-> Total de arestas: 11
+v0: (v3, 15); (v2, 13); (v1, 10);
+v1: (v1, 0); (v0, 10);
+v2: (v4, 5); (v3, 17); (v1, 23); 
+v3: (v4, 10); (v1, 17);
+v4: (v3, 10); 
+++ Verificando a existencia das arestas do grafo ++
+-> Nao existe a aresta v0 --> v0.
+-> Existe a aresta v0 --> v1.
+-> Existe a aresta v0 --> v2.
+-> Existe a aresta v0 --> v3.
+-> Nao existe a aresta v0 --> v4.
+-> Existe a aresta v1 --> v0.
+-> Existe a aresta v1 --> v1.
+-> Nao existe a aresta v1 --> v2.
+-> Nao existe a aresta v1 --> v3.
+-> Nao existe a aresta v1 --> v4.
+-> Nao existe a aresta v2 --> v0.
+-> Existe a aresta v2 --> v1.
+-> Nao existe a aresta v2 --> v2.
+-> Existe a aresta v2 --> v3.
+-> Existe a aresta v2 --> v4.
+-> Nao existe a aresta v3 --> v0.
+-> Existe a aresta v3 --> v1.
+-> Nao existe a aresta v3 --> v2.
+-> Nao existe a aresta v3 --> v3.
+-> Existe a aresta v3 --> v4.
+-> Nao existe a aresta v4 --> v0.
+-> Nao existe a aresta v4 --> v1.
+-> Nao existe a aresta v4 --> v2.
+-> Existe a aresta v4 --> v3.
+-> Nao existe a aresta v4 --> v4.
+++ Testando a remocao de algumas aretas do grafo ++
+-> Aresta v0 --(10)--> v1 removida.
+-> Aresta v0 --> v5 nao existe.
+-> Aresta v4 --(10)--> v3 removida.
+-> Aresta v5 --> v3 nao existe.
+++ Imprimindo grafo ++
+-> Total de vertices: 5
+-> Total de arestas: 9
+v0: (v3, 15); (v2, 13);
+v1: (v1, 0); (v0, 10);
+v2: (v4, 5); (v3, 17); (v1, 23);
+v3: (v4, 10); (v1, 17);
+v4:
+++ Testando a busca de listas de adjacencias vazias ++
+-> Lista de adjacencia do vertice 'v0' nao eh vazia.
+-> Lista de adjacencia do vertice 'v1' nao eh vazia.
+-> Lista de adjacencia do vertice 'v2' nao eh vazia.
+-> Lista de adjacencia do vertice 'v3' nao eh vazia.
+-> Lista de adjacencia do vertice 'v4' eh vazia.
+++ Testando a verificacao do primeiro vertice adjacente de cada lista ++
+-> Vertice 'v3' eh o primeiro da lista do vertice 'v0'.
+-> Vertice 'v1' eh o primeiro da lista do vertice 'v1'.
+-> Vertice 'v4' eh o primeiro da lista do vertice 'v2'.
+-> Vertice 'v4' eh o primeiro da lista do vertice 'v3'.
+-> Vertice 'v4' nao possui adjacencias.
+++ Verificando os proximos vertices de cada lista ++
+-> (Lista de v0) O vertice 'v2' eh o proximo de 'v3'.
+-> (Lista de v1) O vertice 'v0' eh o proximo de 'v1'.
+-> (Lista de v2) O vertice 'v3' eh o proximo de 'v4'.
+-> (Lista de v3) O vertice 'v1' eh o proximo de 'v4'.
+-> (Lista de v4) Nao existe proximo.
+++ Removendo o grafo da memoria ++
+-> Grafo escluido da memoria.
+-> Algum problema ocorreu ao tentar-se excluir o grafo.
