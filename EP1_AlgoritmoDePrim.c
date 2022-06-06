@@ -3,9 +3,15 @@
     Professor: Helton
     Aluno: Wesley Carneiro
 
-    Programa que implementa o algoritmo de Prim, para a produção de uma árvore geradora mínima, de uma grafo não-direcionado e conexo.
-    O algoritmo implementado seguiu uma estratégia de resolução mais simples, com uso de um arranjo para representar a AGM, ao invés de uma fila de prioridades..
-    Algormito de Prim implementado, possui complexidade O(V*E), sendo V vértices e E arestas de um grafo G(v, E).
+    Programa que implementa o algoritmo de Prim, para a produção de uma árvore geradora mínima (AGM), de uma grafo não-direcionado e conexo.
+    O algoritmo implementado seguiu uma estratégia de resolução mais simples e com uso de um arranjo para representar a AGM, ao invés de uma fila de prioridades.
+    Algoritmo possui complexidade O(V*E), sendo V vértices e E arestas de um grafo G(v, E).
+
+    Para a execução do programa, é necessário especificar na linha de comando um arquivo de entrada e um arquivo de saída, definidos no parâmetro da função main().
+    O arquivo de entrada contem o número total de vértices e arestas, além do par de vértices 'u v' de cada aresta do grafo.
+    O arquivo de saída especifica o custo mínimo do ARG e suas arestas. 
+    
+    fonte: https://www.ime.usp.br/~pf/algoritmos_para_grafos/
 */
 
 #include <stdio.h>
@@ -20,7 +26,7 @@ typedef int bool;
 #define MAX 100                 // Tamanho maximo da matriz
 #define AN -1                   // Valor que representa uma aresta nula ou uma aresta ausente.
 #define INVALIDO -1             // Vertice invalido ou ausente.
-#define INFINITY 1000000  // (10^6) Peso arbitrario para as arestas da árvore geradora mínima (AGM).
+#define INFINITY 1000000  	// (10^6) Peso arbitrario para as arestas da árvore geradora mínima (AGM).
 
 
 /*
@@ -29,8 +35,8 @@ typedef int bool;
 typedef struct
 {
     int **matriz;
-    int *arvore;
-    int custo;
+    int *arvore;	// AGM
+    int custo;		// Custo da AGM
     int nVertices;
     int nArestas;
 }GRAFO;
@@ -78,7 +84,7 @@ bool desalocarMatriz(GRAFO *grafo)
 
 
 /*
-    Inicializa o grafo alocando uma matriz.
+    Inicializa o grafo alocando uma matriz e o array da AGM.
     Atribui -1 para todos os elementos a_ij e a_ji da matriz.
     Atribui 'nv' a 'nVertices' e 0 em 'nArestas'.
 */
@@ -121,7 +127,7 @@ void insereAresta(int v1, int v2, int peso, GRAFO *grafo)
 
 /*
     Função para receber os dados das arestas a partir de um arquivo de entrada.
-    Realiza apenas a leitura do arquivo.txt (r).
+    Realiza apenas a leitura e escrita dos arquivos especificados.
     nv: Número total de vértices.
     na: Número total de arestas.
     (u, v): Par de vértices que representam uma aresta.
@@ -167,10 +173,10 @@ void imprimeGrafo(GRAFO *grafo, FILE *fp)
 }
 
 /*
-	Recebe um grafo e um array (pais de cada nó) para representar os vértices finais da árvore geradora mínima (AGM).
-	O grafo recebido deve ser não-direcionado e conexo.
-    Neste algoritmo, não é utilizada uma fila de prioridades, ao invés disso, é realizada a verificação
-    dos menores pesos de arestas de forma iterativa.
+    Recebe um grafo e um array (pais de cada nó) para representar o custo e os vértices finais da árvore geradora mínima (AGM).
+    O grafo recebido deve ser não-direcionado e conexo.
+    Neste algoritmo, não é utilizada uma fila de prioridades, ao invés disso, é realizada a verificação dos menores pesos de 
+    arestas de forma iterativa.
     Após ser encontrada a aresta de menor peso entre um vértice 'u' e 'v', guardamos o seu custo em um somatório.
 */
 void algoritmoDePrim(GRAFO *grafo)
@@ -221,16 +227,23 @@ void algoritmoDePrim(GRAFO *grafo)
     }
 }
 
+/*
+	argv[1]: Arquivo de entrada, que contém a representação do grafo.
+	argv[2]: Arquivo de saída, que contém o custo e arestas de uma AGM.
+*/
 int main(int args, char *argv[])
 {
     GRAFO grafo;
-    FILE *fp1 = fopen(argv[1], "r");
-    FILE *fp2 = fopen(argv[2], "w");
+    FILE *fp1 = fopen(argv[1], "r"); // Leitura
+    FILE *fp2 = fopen(argv[2], "w"); // Escrita
 
     entradaDeDados(&grafo, argv, fp1, fp2);
     fclose(fp1);
     algoritmoDePrim(&grafo);
     imprimeGrafo(&grafo, fp2);
     fclose(fp2);
+    desalocarMatriz(&grafo);
+    
+    return 0;
 }
 
