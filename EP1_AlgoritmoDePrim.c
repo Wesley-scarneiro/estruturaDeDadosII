@@ -4,7 +4,7 @@
     Aluno: Wesley Carneiro
 
     Programa que implementa o algoritmo de Prim, para a produção de uma árvore geradora mínima (AGM), de uma grafo não-direcionado e conexo.
-    O algoritmo implementado seguiu uma estratégia de resolução mais simples e com uso de um arranjo para representar a AGM, ao invés de uma fila de prioridades.
+    O algoritmo implementado seguiu uma estratégia de resolução mais simples e com uso de um arranjo para representar a AGM.
     Algoritmo possui complexidade O(V*E), sendo V vértices e E arestas de um grafo G(v, E).
 
     Para a execução do programa, é necessário especificar na linha de comando um arquivo de entrada e um arquivo de saída, definidos no parâmetro da função main().
