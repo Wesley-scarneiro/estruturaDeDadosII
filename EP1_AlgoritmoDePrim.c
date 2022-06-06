@@ -173,11 +173,11 @@ void imprimeGrafo(GRAFO *grafo, FILE *fp)
 }
 
 /*
-    Recebe um grafo e um array (pais de cada nó) para representar o custo e os vértices finais da árvore geradora mínima (AGM).
     O grafo recebido deve ser não-direcionado e conexo.
     Neste algoritmo, não é utilizada uma fila de prioridades, ao invés disso, é realizada a verificação dos menores pesos de 
     arestas de forma iterativa.
-    Após ser encontrada a aresta de menor peso entre um vértice 'u' e 'v', guardamos o seu custo em um somatório.
+    Após ser encontrada a aresta de menor peso entre um vértice 'u' e 'v', guardamos o seu custo em um somatório e a aresta no
+    array de 'arvore' do grafo.
 */
 void algoritmoDePrim(GRAFO *grafo)
 {
